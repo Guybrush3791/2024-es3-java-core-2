@@ -166,11 +166,11 @@ public class App4 {
 
         // es1();
         // es2();
-        es3();
+        // es3();
         // es4();
         // es5();
         // es6();
-        // es7();
+        es7();
     }
 
     public static void es1() {
@@ -299,19 +299,133 @@ public class App4 {
     }
 
     public static void es4() {
+
+        /**
+         * Esercizio 4: Conta caratteri specifici
+         * Argomenti trattati: variabili, Scanner, syso, stringhe, loop
+         * 
+         * Scrivi un programma che conti il numero di volte che un carattere specificato
+         * dall'utente appare in una stringa. Il programma dovrebbe:
+         * 
+         * Chiedere all'utente di inserire una stringa e un carattere utilizzando la
+         * classe Scanner.
+         * Utilizzare un ciclo for per contare le occorrenze del carattere nella
+         * stringa.
+         * Stampare il conteggio delle occorrenze.
+         */
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Inserisci una stringa: ");
+        String userString = sc.nextLine();
+
+        System.out.println("Inserisci un carattere: ");
+        char c = sc.nextLine().charAt(0);
+
+        int count = 0;
+        for (char userStringC : userString.toCharArray()) {
+
+            // if (c == userStringC)
+            // count++;
+
+            count += c == userStringC ? 1 : 0;
+        }
+
+        System.out.println("Il carattere " + c + " appare " + count + " volte nella stringa \"" + userString + "\"");
+
+        sc.close();
     }
 
     public static void es5() {
+
+        /**
+         * Esercizio 5: Stampa caratteri alternativi
+         * Argomenti trattati: variabili, Scanner, syso, stringhe, loop
+         * 
+         * Scrivi un programma che stampi solo i caratteri in posizione pari di una
+         * stringa inserita dall'utente. Il programma dovrebbe:
+         * 
+         * Chiedere all'utente di inserire una stringa utilizzando la classe Scanner.
+         * Utilizzare un ciclo for per iterare attraverso la stringa.
+         * Stampare solo i caratteri in posizione pari.
+         */
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Inserisci una stringa: ");
+        String userString = sc.nextLine();
+
+        for (int x = 1; x < userString.length(); x += 2) {
+
+            System.out.print(userString.charAt(x));
+        }
+
+        sc.close();
     }
 
     public static void es6() {
+
+        /**
+         * Esercizio 6: Reverse di una stringa
+         * Argomenti trattati: variabili, Scanner, syso, stringhe, loop
+         * 
+         * Scrivi un programma che inverta una stringa inserita dall'utente. Il
+         * programma dovrebbe:
+         * 
+         * Chiedere all'utente di inserire una stringa utilizzando la classe Scanner.
+         * Utilizzare un ciclo for per costruire la stringa invertita.
+         * Stampare la stringa invertita.
+         */
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Inserisci una stringa: ");
+        String userString = sc.nextLine();
+
+        for (int x = userString.length() - 1; x >= 0; x--) {
+
+            System.out.print(userString.charAt(x));
+        }
+
+        sc.close();
     }
 
     public static void es7() {
+
+        /**
+         * Esercizio 7: Somma dei numeri pari in un array
+         * Argomenti trattati: variabili, primitivi, Scanner, syso, array, loop
+         * 
+         * Scrivi un programma che calcoli la somma dei numeri pari in un array di
+         * numeri interi. Il programma dovrebbe:
+         * 
+         * Chiedere all'utente di inserire la dimensione dell'array e riempire l'array
+         * di numeri random compresi tra 0 e 99.
+         * Utilizzare un ciclo for per sommare solo i numeri pari nell'array.
+         * Stampare la somma risultante.
+         */
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Inserisci la dimensione dell'array: ");
+        int dim = Integer.valueOf(sc.nextLine());
+
+        int[] rndValues = getRandomValues(dim);
+
+        int sum = 0;
+        for (int x = 0; x < dim; x += 2) {
+
+            sum += rndValues[x];
+        }
+
+        System.out.println("La somma dei numeri pari nell'array è: " + sum);
+
+        sc.close();
     }
 
     /**
      * Metodo che restituisce un array di dimensione dim con valori random compresi
+     * tra 0 e 99
      * 
      * @param dim dimensione dell'array
      * @return array di dimensione dim con valori random compresi tra 0 e 99
