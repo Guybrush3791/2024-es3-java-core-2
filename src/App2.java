@@ -124,9 +124,8 @@ public class App2 {
         int vouelCount = 0;
         for (char c : userString.toCharArray()) {
 
-            if (isVouel(c)) {
+            if (isVouel(c))
                 vouelCount++;
-            }
 
             // vouelCount += isVouel(c) ? 1 : 0;
         }
