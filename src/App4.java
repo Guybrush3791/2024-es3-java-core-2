@@ -120,6 +120,46 @@ public class App4 {
      * requisito.
      * Stampare un messaggio che indica se la password è valida o meno e, in caso
      * negativo, quali criteri non sono stati soddisfatti.
+     * 
+     * ------------------------------------------------------------------------------------------------
+     * 
+     * Esercizio Bonus 9: Conversione da numero a parola
+     * Argomenti trattati: variabili, primitivi, Scanner, syso, array, loop, metodi
+     * 
+     * Scrivi un programma che converta un numero intero (da 0 a 999) in parole. Per
+     * esempio, 123 dovrebbe essere convertito in "centoventitré".
+     * Il programma dovrebbe:
+     * 
+     * Chiedere all'utente di inserire un numero intero tra 0 e 999 utilizzando la
+     * classe Scanner.
+     * Definire un metodo per la conversione delle centinaia, uno per le decine e
+     * uno per le unità.
+     * Combinare i risultati dei metodi per formare il numero completo in parole.
+     * Stampare il numero in parole.
+     * 
+     * ------------------------------------------------------------------------------------------------
+     * 
+     * Esercizio Bonus 10: Gioco della morra cinese
+     * Argomenti trattati: variabili, primitivi, Scanner, syso, array, loop, if,
+     * metodi
+     * 
+     * Crea un programma che permetta a due giocatori di giocare a morra cinese
+     * (carta, forbice, sasso). Il programma dovrebbe:
+     * 
+     * Chiedere a ciascun giocatore di scegliere tra carta, forbice e sasso,
+     * utilizzando la classe Scanner. Assicurati che l'input sia valido (solo carta,
+     * forbice o sasso).
+     * Definire un metodo determinaVincitore che prenda le scelte dei due giocatori
+     * come parametri e ritorni il vincitore basandosi sulle regole tradizionali del
+     * gioco (carta batte sasso, sasso batte forbice, forbice batte carta).
+     * Utilizzare un loop do-while per permettere ai giocatori di giocare più round
+     * fino a quando non decidono di fermarsi.
+     * Stampare il vincitore di ogni round e tenere traccia del punteggio
+     * complessivo.
+     * Questi esercizi bonus richiedono una comprensione più approfondita delle
+     * logiche di programmazione e delle strutture di controllo in Java, offrendo
+     * agli studenti una sfida maggiore e l'opportunità di applicare concetti
+     * avanzati.
      */
 
     public static void main(String[] args) {
