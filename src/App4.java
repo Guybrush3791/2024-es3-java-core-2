@@ -1,3 +1,4 @@
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -170,7 +171,9 @@ public class App4 {
         // es4();
         // es5();
         // es6();
-        es7();
+        // es7();
+        // es8();
+        es9();
     }
 
     public static void es1() {
@@ -421,6 +424,158 @@ public class App4 {
         System.out.println("La somma dei numeri pari nell'array è: " + sum);
 
         sc.close();
+    }
+
+    // --------- BONUS ---------
+
+    public static void es8() {
+
+        /**
+         * Esercizio Bonus 8: Validazione di una password
+         * Argomenti trattati: variabili, Scanner, syso, stringhe, loop, if
+         * 
+         * Scrivi un programma che verifichi la validità di una password inserita
+         * dall'utente secondo i seguenti criteri:
+         * 
+         * La password deve essere lunga almeno 8 caratteri.
+         * La password deve contenere almeno un numero.
+         * La password deve avere almeno una lettera maiuscola e una minuscola.
+         * La password deve contenere almeno un carattere speciale (es. @, #, $, ecc.).
+         * Il programma dovrebbe:
+         * 
+         * Chiedere all'utente di inserire una password utilizzando la classe Scanner.
+         * Utilizzare un ciclo for e condizioni if per verificare la presenza di ciascun
+         * requisito.
+         * Stampare un messaggio che indica se la password è valida o meno e, in caso
+         * negativo, quali criteri non sono stati soddisfatti.
+         * 
+         */
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Inserisci una password: ");
+        String password = sc.nextLine();
+
+        boolean flagLong = password.length() >= 8;
+
+        boolean flagNumber = false;
+        boolean flagUpper = false;
+        boolean flagLower = false;
+        boolean flagSpecial = false;
+
+        for (char c : password.toCharArray()) {
+
+            if (c >= '0' && c <= '9')
+                flagNumber = true;
+            else if (c >= 'A' && c <= 'Z')
+                flagUpper = true;
+            else if (c >= 'a' && c <= 'z')
+                flagLower = true;
+            else
+                flagSpecial = true;
+        }
+
+        if (flagLong && flagNumber && flagUpper && flagLower && flagSpecial)
+            System.out.println("Password valida");
+        else {
+
+            System.out.println("Password non valida");
+
+            if (!flagLong)
+                System.out.println("La password deve essere lunga almeno 8 caratteri");
+
+            if (!flagNumber)
+                System.out.println("La password deve contenere almeno un numero");
+
+            if (!flagUpper)
+                System.out.println("La password deve avere almeno una lettera maiuscola");
+
+            if (!flagLower)
+                System.out.println("La password deve avere almeno una lettera minuscola");
+
+            if (!flagSpecial)
+                System.out.println("La password deve contenere almeno un carattere speciale");
+        }
+
+        sc.close();
+    }
+
+    public static void es9() {
+
+        /**
+         * Esercizio Bonus 9: Conversione da numero a parola
+         * Argomenti trattati: variabili, primitivi, Scanner, syso, array, loop, metodi
+         * 
+         * Scrivi un programma che converta un numero intero (da 0 a 999) in parole. Per
+         * esempio, 123 dovrebbe essere convertito in "centoventitré".
+         * Il programma dovrebbe:
+         * 
+         * Chiedere all'utente di inserire un numero intero tra 0 e 999 utilizzando la
+         * classe Scanner.
+         * Definire un metodo per la conversione delle centinaia, uno per le decine e
+         * uno per le unità.
+         * Combinare i risultati dei metodi per formare il numero completo in parole.
+         * Stampare il numero in parole.
+         */
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Inserisci un numero intero tra 0 e 999: ");
+        String userStrValue = sc.nextLine();
+        char[] userCharValue = userStrValue.toCharArray();
+        int value = Integer.valueOf(userStrValue);
+
+        sc.close();
+
+        if (value < 0 || value > 999) {
+
+            System.out.println("Out of bounds");
+            return;
+        }
+
+        String[] unregularValues = {
+                "zero", "uno", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove", "dieci",
+                "undici", "dodici", "tredici", "quattordici", "quindici", "sedici", "diciassette", "diciotto",
+                "diciannove"
+        };
+
+        if (value < 20) {
+
+            System.out.println(unregularValues[value]);
+            return;
+        }
+
+        String strValue = "";
+
+        if (value >= 100) {
+
+            String[] hundredsValues = {
+                    "", "cento", "duecento", "trecento", "quattrocento", "cinquecento", "seicento", "settecento",
+                    "ottocento", "novecento"
+            };
+
+            int hundred = value / 100;
+            strValue += hundredsValues[hundred];
+        }
+
+        String[] tensValues = {
+                "", "", "venti", "trenta", "quaranta", "cinquanta", "sessanta", "settanta", "ottanta", "novanta"
+        };
+        String[] units = { "", "uno", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove" };
+
+        int ten = Integer.valueOf("" + userCharValue[userCharValue.length - 2]);
+        int unit = Integer.valueOf("" + userCharValue[userCharValue.length - 1]);
+
+        int fullSubValue = ten * 10 + unit;
+        if (fullSubValue > 9 && fullSubValue < 20)
+            strValue += unregularValues[fullSubValue];
+        else
+            strValue += tensValues[ten] + units[unit];
+
+        System.out.println(value + ": " + strValue);
+
+        return;
+
     }
 
     /**
